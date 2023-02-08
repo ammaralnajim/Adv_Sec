@@ -65,3 +65,9 @@ This eliminates the potential for buffer overflow and any other related security
 - Problem 5: Inadequate error handling
 
 ***It implements error handling and exception management techniques to catch and handle unexpected errors or conditions, and prevent them from causing the application to crash or become vulnerable to attacks.
+
+
+****REFERENCES****
+- https://infosecwriteups.com/common-c-vulnerabilities-b84777e071b9
+- Differences between strcmp and strcpy in C: https://www.geeksforgeeks.org/differences-between-strcmp-and-strcpy-in-c/
+- OWASP guide on Buffer Overflow: https://owasp.org/www-community/attacks/Buffer_Overflow
