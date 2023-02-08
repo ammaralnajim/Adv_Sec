@@ -9,6 +9,36 @@
 #include <string.h>
 #include "hash_fixed.h"
 
+// --
+
+int main(int argc, char *argv[])
+{
+    HashMap* map = HashInit();
+
+    PairValue *p1 = (PairValue*)malloc(sizeof(PairValue));
+    strcpy(p1->KeyName, "Key1");
+    p1->ValueCount = 10;
+    HashAdd(map, p1);
+
+    PairValue *p2 = (PairValue*)malloc(sizeof(PairValue));
+    strcpy(p2->KeyName, "Key2");
+    p2->ValueCount = 20;
+    HashAdd(map, p2);
+
+    HashDump(map);
+
+    HashDelete(map, "Key1");
+    HashDump(map);
+
+    PairValue *result = HashFind(map, "Key2");
+    if (result)
+        printf("KeyName: %s, ValueCount: %d\n", result->KeyName, result->ValueCount);
+
+    return 0;
+}
+
+// --
+
 unsigned HashIndex(const char* key) {
     unsigned sum = 0;
     for (size_t i = 0; i < strlen(key); i++){
@@ -63,4 +93,8 @@ void HashDelete(HashMap *map, const char* key) {
 void HashDump(HashMap *map) {
     for( unsigned i = 0; i < MAP_MAX; i++ ) {
         for( PairValue* val = map->data[i]; val != NULL; val = val->Next ) {
-            printf("KeyName: %s, ValueCount: %d\
+            printf("KeyName: %s, ValueCount: %d", val->KeyName, val->ValueCount);
+        }
+    }
+}
+

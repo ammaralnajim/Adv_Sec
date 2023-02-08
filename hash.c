@@ -9,6 +9,9 @@
 #include <string.h>
 #include "hash.h"
 
+// no main function
+
+
 unsigned HashIndex(const char* key) {
     unsigned sum = 0;
     for (char* c = key; c; c++){
