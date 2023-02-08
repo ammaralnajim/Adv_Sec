@@ -1,0 +1,67 @@
+(3b)
+
+(i) Uninitialized memory allocation:
+
+- The HashMap struct is allocated dynamically with malloc, but it is not initialized.
+- map->data is used in HashAdd, HashFind, HashDelete, and HashDump without any check if it is valid or not.
+
+(ii) Buffer overflow:
+
+- The index of the hash map, idx, is not validated against the size of the map->data array, leading to the potential for writing beyond the bounds of the array.
+- The strcpy function is used in HashFind and HashDelete to compare strings, which is not its intended use.trcpy is used in HashFind and HashDelete to compare two strings. 
+It is bad as strcpy copies a string from one location in memory to another, but it is not meant for string comparison.
+
+(iii) Incorrect usage of strcpy():
+
+(3c) 
+
+(i) Uninitialized memory allocation:
+
+- Availability 
+
+(ii) Buffer overflow:
+
+- Integrity & confidentiality
+
+(iii) Incorrect usage of strcpy():
+
+- Integrity
+
+(3d) The following are the fixes made in hash.c:
+
+- In the HashIndex function, the for loop was changed to loop until the null terminator is reached. This was fixed to prevent accessing invalid memory.
+- In the HashAdd function, the comparison in strcpy was changed to strcmp. This was fixed to prevent using the wrong comparison operator.
+- In the HashFind function, the comparison in strcpy was changed to strcmp. This was fixed to prevent using the wrong comparison operator.
+- In the HashDelete function, the comparison in strcpy was changed to strcmp. This was fixed to prevent using the wrong comparison operator.
+- In the HashDump function, printf was changed to print the value of the ValueCount field of the PairValue structure. This was fixed to prevent missing important information during debugging.
+
+
+(3e) 
+- I expect my fixes to remove the problems because they address the specific issues that were identified in each case.
+For example, in the case of the use of strcpy instead of strcmp, the fix changes the function used to compare the strings so that it now checks if they are equal rather than copying the contents of one string over the other.
+This eliminates the potential for buffer overflow and any other related security issues. Similarly, the other fixes address the specific issues of memory allocation, data validation, and input handling, ensuring that the code is more secure and less prone to attacks or security breaches.
+
+
+
+(3f)
+###Hardening Instructions
+
+- Problem 1: Improper memory allocation
+
+*** It allocates memory dynamically using malloc or calloc, instead of using a fixed-size array to store data.
+
+- Problem 2: Lack of input validation
+
+*** It validates all inputs to ensure that they are within a valid range, including the length of strings, to prevent buffer overflow or other vulnerabilities.
+
+- Problem 3: Improper string comparison
+
+***It use strcmp or similar functions that compare strings for equality, instead of strcpy, to prevent buffer overflow or other vulnerabilities.
+
+- Problem 4: Improper data handling
+
+***It implements proper data handling techniques such as linked lists or hash tables to manage data, and properly manage memory allocation, freeing, and releasing resources when they are no longer needed.
+
+- Problem 5: Inadequate error handling
+
+***It implements error handling and exception management techniques to catch and handle unexpected errors or conditions, and prevent them from causing the application to crash or become vulnerable to attacks.
