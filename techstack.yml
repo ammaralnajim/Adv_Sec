@@ -2,7 +2,7 @@ repo_name: ammaralnajim/Adv_Sec
 report_id: 9877393f632fadb2da4a7bae0794f754
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-20T18:34:51+00:00'
+timestamp: '2024-01-05T08:19:23+00:00'
 requested_by: davidayomide
 provider: github
 branch: main
@@ -16,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: https://github.com/ammaralnajim/Adv_Sec
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -25,6 +26,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/ammaralnajim/Adv_Sec
   detection_source: Repo Metadata
 - name: LangChain
   description: Build AI apps with LLMs through composability
@@ -34,6 +36,7 @@ tools:
   category: Communications
   sub_category: Large Language Model Tools
   image_url: https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg
+  detection_source_url: https://github.com/ammaralnajim/Adv_Sec/blob/main/hardenings.txt
   detection_source: hardenings.txt
   last_updated_by: davidayomide
   last_updated_on: 2023-02-08 15:58:13.000000000 Z
